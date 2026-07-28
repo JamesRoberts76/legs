@@ -1,661 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legs Guide | Lower Leg Fascia &amp; Kinetic Chain</title>
-    <style>
-        :root {
-            --bg-color: #0c0c0e;
-            --surface-color: #141417;
-            --surface-border: #232328;
-            --text-primary: #f4f4f6;
-            --text-secondary: #9a9a9f;
-            --accent-color: #d4af37;
-            --accent-hover: #e5c158;
-            --danger-color: #8b3a3a;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --max-width: 720px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGS.GUIDE // LOWER LIMB MECHANICS & STANDING LOAD</title>
+<meta name="description" content="An objective look at managing prolonged standing fatigue, calf tension, and lower limb circulation patterns.">
+<style>
+  :root {
+    --bg: #0f1115;
+    --surface: #16191f;
+    --surface-2: #1e222b;
+    --text: #c9cdd4;
+    --text-dim: #7a8194;
+    --text-bright: #e8eaed;
+    --accent: #6b8f71;
+    --accent-dim: #4a6b50;
+    --border: #252a35;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.35);
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ::selection { background: var(--accent-dim); color: var(--text-bright); }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,17,21,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-bright);
+    letter-spacing: 0.5px;
+  }
+  .brand span { color: var(--accent); }
+  nav { display: flex; gap: 24px; }
+  nav a {
+    font-size: 13px;
+    color: var(--text-dim);
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--text); text-decoration: none; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            padding: clamp(1rem, 3vw, 2rem) 1rem;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
+  /* Sections */
+  section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 64px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-of-type { border-bottom: none; }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 450px;
-            height: 450px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23d4af37' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M50 15 L85 75 L15 75 Z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            opacity: 0.06;
-            pointer-events: none;
-            z-index: 0;
-        }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+  }
 
-        .container {
-            width: 100%;
-            max-width: var(--max-width);
-            position: relative;
-            z-index: 1;
-        }
+  h1, h2, h3 {
+    color: var(--text-bright);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  h1 { font-size: 32px; margin-bottom: 12px; }
+  h2 { font-size: 22px; margin-bottom: 16px; }
+  h3 { font-size: 16px; margin-bottom: 8px; }
 
-        header {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--surface-border);
-            padding-bottom: 1.5rem;
-        }
+  p { margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
 
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 1rem;
-        }
+  /* Hero */
+  .hero { padding-top: 80px; padding-bottom: 48px; }
+  .hero h1 { font-size: 36px; }
+  .hero-subtitle {
+    font-size: 16px;
+    color: var(--text-dim);
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
 
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
+  /* Disclaimer */
+  .disclaimer {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 48px;
+  }
 
-        .nav-tabs {
-            display: flex;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-        }
+  /* Chat Widget */
+  .chat-widget {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .chat-header {
+    background: var(--surface-2);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .chat-dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .chat-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-bright);
+  }
+  .chat-body {
+    padding: 20px;
+    min-height: 120px;
+  }
+  .chat-message {
+    background: var(--surface-2);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    border-left: 3px solid var(--accent);
+  }
+  .chat-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .chip {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .chip:hover {
+    border-color: var(--accent);
+    color: var(--text-bright);
+  }
+  .chat-input-wrap {
+    display: flex;
+    gap: 10px;
+  }
+  .chat-input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    color: var(--text);
+    font-size: 14px;
+    font-family: var(--font);
+    outline: none;
+  }
+  .chat-input:focus { border-color: var(--accent); }
+  .chat-send {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .chat-send:hover { opacity: 0.85; }
+  .chat-reply {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: var(--surface-2);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    line-height: 1.6;
+    display: none;
+    border-left: 3px solid var(--accent-dim);
+  }
+  .chat-reply.visible { display: block; }
+  .chat-status {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 8px;
+    font-family: var(--mono);
+  }
 
-        .nav-tabs a {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-            cursor: pointer;
-        }
+  /* Evolution steps */
+  .evolution {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .evo-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .evo-num {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 36px;
+    text-align: center;
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .evo-content h3 { margin-bottom: 4px; }
+  .evo-content p {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 0;
+  }
 
-        .nav-tabs a:hover {
-            color: var(--accent-color);
-        }
+  /* Compare */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .compare-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+  .compare-card.negative { border-left: 3px solid #8b5a5a; }
+  .compare-card.positive { border-left: 3px solid var(--accent); }
+  .compare-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .compare-card h3 { margin-bottom: 8px; }
+  .compare-card p {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 0;
+  }
 
-        section {
-            margin-bottom: 3.5rem;
-        }
+  /* Quote */
+  .case-quote {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 24px 28px;
+    font-style: italic;
+    color: var(--text-dim);
+    margin-top: 24px;
+  }
+  .case-quote p { margin-bottom: 12px; }
+  .case-quote cite {
+    font-style: normal;
+    font-size: 13px;
+    color: var(--text-dim);
+    font-family: var(--mono);
+  }
 
-        h1 {
-            font-size: clamp(1.8rem, 4vw, 2.25rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
+  /* Protocol cards */
+  .protocol-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 18px;
+    font-size: 13px;
+    color: var(--text);
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: all 0.2s;
+  }
+  .protocol-toggle:hover { border-color: var(--accent); }
+  .protocol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    display: none;
+  }
+  .protocol-grid.open { display: grid; }
+  .protocol-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: border-color 0.2s;
+  }
+  .protocol-card:hover { border-color: var(--accent-dim); }
+  .protocol-card .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .protocol-card h3 { font-size: 14px; margin-bottom: 6px; }
+  .protocol-card p {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 0;
+    line-height: 1.55;
+  }
 
-        h2 {
-            font-size: clamp(1.2rem, 3vw, 1.35rem);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-            color: var(--text-primary);
-            border-left: 3px solid var(--accent-color);
-            padding-left: 0.75rem;
-        }
+  /* Timeline */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 24px;
+    position: relative;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--border);
+  }
+  .t-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 16px 0;
+    position: relative;
+  }
+  .t-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-dim);
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .t-item.active .t-dot {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--surface);
+  }
+  .t-content h4 {
+    font-size: 14px;
+    color: var(--text-bright);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .t-content p {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 0;
+  }
 
-        p {
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-            font-size: clamp(0.98rem, 2vw, 1.05rem);
-        }
+  /* Network pills */
+  .network-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: var(--text);
+    transition: all 0.2s;
+  }
+  .pill:hover {
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+  .pill.hub { border-color: var(--accent-dim); }
+  .pill-hub {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--accent-dim);
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
 
-        .lead {
-            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-        }
+  /* About */
+  .about-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-top: 24px;
+  }
+  .about-block p { color: var(--text-dim); }
+  .about-block p strong { color: var(--text-bright); }
 
-        .card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 1.75rem;
-            margin-bottom: 1.5rem;
-        }
+  /* Access / Pricing */
+  .pricing-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .pricing-block h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .pricing-block .price {
+    font-family: var(--mono);
+    font-size: 28px;
+    color: var(--text-bright);
+    margin: 16px 0;
+  }
+  .pricing-block .price-note {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: var(--radius-sm);
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.85; text-decoration: none; }
 
-        ul {
-            list-style: none;
-            margin-bottom: 1.25rem;
-        }
+  /* Footer */
+  footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--text-dim); }
+  footer a:hover { color: var(--text); }
 
-        ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        ul li::before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        ul li strong {
-            color: var(--text-primary);
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        @media (min-width: 600px) {
-            .comparison-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .comparison-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .fan-canvas {
-            width: 100%;
-            height: 220px;
-            background-color: #121216;
-            border: 1px solid var(--surface-border);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.25rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .fan-canvas svg {
-            max-height: 190px;
-            width: auto;
-        }
-
-        .comparison-card h3 {
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .comparison-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
-
-        .cta-box {
-            background-color: var(--surface-color);
-            border: 1px solid var(--accent-color);
-            border-radius: 6px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .cta-box h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            margin-top: 1rem;
-            transition: background-color 0.2s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .immersive-portal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: var(--bg-color);
-            z-index: 2000;
-            flex-direction: column;
-            overflow-y: auto;
-        }
-
-        .immersive-portal.active {
-            display: flex;
-        }
-
-        .portal-header {
-            width: 100%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 2rem 1rem 1.5rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--surface-border);
-        }
-
-        .portal-title {
-            font-size: 0.9rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .portal-exit {
-            background: none;
-            border: 1px solid var(--surface-border);
-            color: var(--text-secondary);
-            padding: 0.4rem 1rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .portal-exit:hover {
-            border-color: var(--accent-color);
-            color: var(--text-primary);
-        }
-
-        .portal-body {
-            width: 100%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            flex: 1;
-            padding: 2rem 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .portal-feed {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .portal-message {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 1.5rem;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        .portal-message.system {
-            border-left: 3px solid var(--accent-color);
-            color: var(--text-primary);
-        }
-
-        .portal-message.user {
-            background-color: #121216;
-            border-color: var(--accent-color);
-            color: var(--text-primary);
-            align-self: flex-end;
-            width: 85%;
-        }
-
-        .portal-input-container {
-            position: sticky;
-            bottom: 0;
-            background-color: var(--bg-color);
-            padding: 1rem 0 2rem 0;
-            border-top: 1px solid var(--surface-border);
-            display: flex;
-            gap: 0.75rem;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .portal-textarea {
-            flex: 1;
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 0.85rem 1rem;
-            color: var(--text-primary);
-            font-size: 1rem;
-            font-family: var(--font-main);
-            resize: none;
-            height: 54px;
-            outline: none;
-        }
-
-        .portal-textarea:focus {
-            border-color: var(--accent-color);
-        }
-
-        .portal-submit {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            padding: 0 1.75rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .portal-submit:hover {
-            background-color: var(--accent-hover);
-        }
-
-        footer {
-            border-top: 1px solid var(--surface-border);
-            padding-top: 2rem;
-            margin-top: 4rem;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .pricing-tag {
-            font-family: monospace;
-            color: var(--accent-color);
-        }
-    </style>
+  /* Responsive */
+  @media (max-width: 600px) {
+    h1 { font-size: 26px; }
+    .hero h1 { font-size: 28px; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .protocol-grid { grid-template-columns: 1fr; }
+    nav { gap: 16px; }
+    nav a { font-size: 12px; }
+    .header-inner { padding: 0 16px; }
+    section { padding: 48px 16px; }
+  }
+</style>
+<base target="_blank">
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <div class="header-top">
-            <a href="#" class="logo">Legs Guide</a>
-            <nav class="nav-tabs">
-                <a href="#shin">Shin Binding</a>
-                <a href="#blobs">Fascial Pockets</a>
-                <a href="#origin">The Origin</a>
-                <a href="#protocol">Protocol</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#legal">Legal &amp; Terms</a>
-            </nav>
-        </div>
-    </header>
+<header>
+  <div class="header-inner">
+    <div class="brand">LEGS<span>.</span>GUIDE</div>
+    <nav>
+      <a href="#approach">The Approach</a>
+      <a href="#protocols">Protocols</a>
+      <a href="#about">About James</a>
+      <a href="#access">Access</a>
+    </nav>
+  </div>
+</header>
 
-    <main>
-        <!-- Opening Section -->
-        <section id="shin">
-            <h1>Lower Leg Fascia &amp; Kinetic Chain</h1>
-            <p class="lead">Lower leg compression and shin binding directly dictate ankle stiffness, knee tracking, gait asymmetry, and standing fatigue.</p>
-            
-            <div class="card" style="border-left: 3px solid var(--accent-color);">
-                <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem;">What is Lower Leg Compression?</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 0;">Connective tissue wraps tightly around the tibia and calf compartments. Without inter-fascial release, the lower leg remains compressed, restricting circulation and limiting fluid load transfer.</p>
-            </div>
+<section class="hero" id="approach">
+  <h1>Standing Load & Lower Limb Circulation.</h1>
+  <p class="hero-subtitle">An objective look at managing prolonged standing fatigue, calf tension, and lower limb circulation patterns. Initial consultations are complimentary.</p>
 
-            <p>Standard approaches treat lower leg discomfort as shin splinters or basic muscular fatigue. True structural change requires clearing sharp fascial adhesions and releasing localized tissue pockets across the entire kinetic chain.</p>
-        </section>
-
-        <!-- Mechanics Architecture -->
-        <section>
-            <h2>The Mechanics of Lower Leg Adhesion: Bound vs. Released</h2>
-            <p>When the lower leg fascia locks down tightly against the bone, ankle motion, knee mechanics, and clean gait are mechanically choked.</p>
-            
-            <div class="comparison-grid">
-                <div class="comparison-card" style="border-color: var(--danger-color);">
-                    <div class="fan-canvas">
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="80" y1="30" x2="80" y2="130" stroke="#8b3a3a" stroke-width="4"/>
-                            <ellipse cx="80" cy="70" rx="10" ry="25" fill="none" stroke="#8b3a3a" stroke-width="2"/>
-                            <text x="80" y="148" fill="#8b3a3a" font-size="9" font-family="monospace" text-anchor="middle">BOUND SHIN</text>
-                        </svg>
-                    </div>
-                    <span style="font-size: 0.75rem; color: var(--danger-color); font-family: monospace; display: block; margin-bottom: 0.35rem;">RESTRICTED STATE</span>
-                    <h3>Compressed Lower Leg</h3>
-                    <p>Tightly bound shin fascia, localized tissue pockets, and false shin splinters choking ankle motion and load transfer.</p>
-                </div>
-
-                <div class="comparison-card" style="border-color: var(--accent-color);">
-                    <div class="fan-canvas">
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="80" y1="20" x2="80" y2="140" stroke="#d4af37" stroke-width="3"/>
-                            <path d="M70 40 Q50 80 70 120" fill="none" stroke="#d4af37" stroke-width="2"/>
-                            <path d="M90 40 Q110 80 90 120" fill="none" stroke="#d4af37" stroke-width="2"/>
-                            <text x="80" y="148" fill="#d4af37" font-size="9" font-family="monospace" text-anchor="middle">RELEASED STATE</text>
-                        </svg>
-                    </div>
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; display: block; margin-bottom: 0.35rem;">RELEASED STATE</span>
-                    <h3>Fluid Architecture</h3>
-                    <p>Fascial layers unspooled, tissue pockets smoothed, and fluid gait and full extension restored.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Origin Section -->
-        <section id="origin">
-            <h2>The Origin: Experience Over Academic Theory</h2>
-            <div class="card">
-                <p>Decades spent navigating structural restriction and lower leg loading revealed a core blind spot: conventional fitness treats lower leg tightness as a fixed limitation rather than a bound fascial casing impacting the entire kinetic chain.</p>
-                <p>This protocol stems from rigorous personal tracking—mapping the exact geometry of shin binding, breaking down false shin splinters, and mastering how the leg straightens and articulates through targeted work.</p>
-                <p style="margin-bottom: 0;">Sovereignty requires mastering your own lower leg geometry.</p>
-            </div>
-        </section>
-
-        <!-- Protocol Section -->
-        <section id="protocol">
-            <h2>The Core Extension Protocols &amp; Shin Map</h2>
-            <p>Lower leg restriction compounds when fascial layers remain glued to the bone. Reversal requires methodical unspooling.</p>
-            
-            <div class="card" id="blobs">
-                <ul>
-                    <li><strong>1. Shin Binding Release:</strong> Clear the tightly layered fascia wrapping the tibia to eliminate false shin splinters and ease ankle stiffness.</li>
-                    <li><strong>2. Tissue Pocket Separation:</strong> Dislodge localized fascial restrictions and restore clean load transfer and symmetrical gait through the entire leg.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Pricing & CTA -->
-        <section id="pricing">
-            <h2>The Sovereign Network Hub &amp; Pricing Policy</h2>
-            <p>Engineered with dry British precision. When you are ready to release lower leg binding and master leg extension, engage the architect.</p>
-            
-            <div class="cta-box">
-                <h3>Unlock Leg Mechanics</h3>
-                <p>Direct, uncompromised access to lower leg unspooling frameworks and extension protocols.</p>
-                <div class="pricing-tag">€60 / 365 Days — Zero Auto-Renewals</div>
-                <p style="font-size: 0.85rem; margin-top: 0.75rem; color: var(--text-secondary);">Pricing Policy: One flat annual fee. No hidden subscription traps, no surprise recurring billing, and zero automatic renewals.</p>
-                <br>
-                <button class="btn" id="openPortalBtn" type="button">Engage the Architect</button>
-            </div>
-        </section>
-
-        <section id="legal" style="margin-top: 4rem; border-top: 1px solid var(--surface-border); padding-top: 2rem;">
-            <h2>Terms, Conditions &amp; Policies</h2>
-            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Terms &amp; Conditions</h3>
-            <p style="font-size: 0.95rem;">By accessing legs.guide, you operate under your own sovereign authority. Protocols are educational frameworks for self-treatment and do not constitute formal medical diagnosis.</p>
-            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Privacy Policy</h3>
-            <p style="font-size: 0.95rem;">Absolute data privacy is foundational. Zero tracking pixels, no intrusive third-party cookies, and no data harvesting.</p>
-            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Refund Policy</h3>
-            <p style="font-size: 0.95rem;">Annual access fees are final upon activation due to the immediate digital delivery of frameworks.</p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div>Part of the Sovereign Network Ecosystem &bull; Built by James</div>
-            <div class="footer-links">
-                <a href="#shin">Shin Binding</a>
-                <a href="#blobs">Fascial Pockets</a>
-                <a href="#origin">The Origin</a>
-                <a href="#pricing">Pricing Policy</a>
-                <a href="#legal">Privacy</a>
-                <a href="#legal">Terms</a>
-                <a href="#legal">Refunds</a>
-            </div>
-        </div>
-        <div style="font-size: 0.8rem; color: var(--text-secondary);">Minimalist Architecture &bull; No Tracking Pixels &bull; Absolute Sovereignty</div>
-    </footer>
-</div>
-
-<!-- Immersive Full-Screen Practice Portal -->
-<div class="immersive-portal" id="immersivePortal">
-    <div class="portal-header">
-        <div class="portal-title">Sovereign Network &bull; Architectural Study</div>
-        <button class="portal-exit" id="closePortalBtn" type="button">Return to Guide</button>
+  <div class="chat-widget">
+    <div class="chat-header">
+      <div class="chat-dot"></div>
+      <div class="chat-title">James — Advisory Node</div>
     </div>
-    <div class="portal-body">
-        <div class="portal-feed" id="portalFeed">
-            <div class="portal-message system">
-                <strong>James:</strong> Sovereign session initialized. Context is maintained across the network matrix. State your lower leg fascial binding or extension query.
-            </div>
-        </div>
+    <div class="chat-body">
+      <div class="chat-message" id="chat-welcome">
+        Before we talk about your legs, try this: give yourself a quick Chinese burn with a warm hand. You might feel objects inside the wrist. Now push up from your ankle toward your calf — you might see concertinaed skin with a shine. This isn't just heavy legs. It's a system-wide fascial tethering. Where are you feeling the load most today?
+      </div>
+      <div class="chat-chips" id="chat-chips">
+        <button class="chip" data-query="Chinese burn test">Chinese burn test</button>
+        <button class="chip" data-query="Calf concertina check">Calf concertina check</button>
+        <button class="chip" data-query="Load distribution">Load distribution</button>
+        <button class="chip" data-query="Signs of progress">Signs of progress</button>
+      </div>
+      <div class="chat-input-wrap">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Describe what you're noticing...">
+        <button class="chat-send" id="chat-send">Send</button>
+      </div>
+      <div class="chat-reply" id="chat-reply"></div>
+      <div class="chat-status" id="chat-status"></div>
     </div>
-    <div class="portal-input-container">
-        <div style="width: 100%; max-width: var(--max-width); margin: 0 auto; display: flex; gap: 0.75rem; padding: 0 1rem;">
-            <textarea class="portal-textarea" id="portalInput" placeholder="Describe your lower leg fascial binding or extension query..."></textarea>
-            <button class="portal-submit" id="portalSubmit" type="button">Engage the Architect</button>
-        </div>
-    </div>
-</div>
+  </div>
 
+  <div class="disclaimer">
+    General postural guidance only, not medical treatment. For persistent or acute pain, consult a qualified clinician.
+  </div>
+
+  <div class="section-label">01 / The Structural Shift</div>
+  <h2>From compressed load-bearing to fluid transmission.</h2>
+  <p>Standing for extended periods creates vertical compression through the lower limb chain. The calves become tethered sleeves. Fluid stagnation accumulates. The system adapts to dysfunction.</p>
+  <p>Reversal is possible. It requires understanding load-bearing transmission rather than treating symptoms in isolation.</p>
+
+  <div class="evolution">
+    <div class="evo-step">
+      <div class="evo-num">01</div>
+      <div class="evo-content">
+        <h3>Seated/Standing Load (Day 1)</h3>
+        <p>Chronic postural fatigue with restricted lower limb circulation. Tethered fascia and compressed fluid pathways dominate the daily experience.</p>
+      </div>
+    </div>
+    <div class="evo-step">
+      <div class="evo-num">02</div>
+      <div class="evo-content">
+        <h3>Decompression (Day 21)</h3>
+        <p>Fluid pathways begin to restore. Calf tension reduces as fascial sleeves release. Standing endurance improves without conscious correction.</p>
+      </div>
+    </div>
+    <div class="evo-step">
+      <div class="evo-num">03</div>
+      <div class="evo-content">
+        <h3>Balanced Baseline (Month 6)</h3>
+        <p>Lower limb mechanics operate with adaptive glide. Load distributes naturally through the chain. Maintenance becomes minimal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mechanics">
+  <div class="section-label">02 / Comparative Mechanics</div>
+  <div class="compare-grid">
+    <div class="compare-card negative">
+      <div class="compare-label">Typical Standing Pattern</div>
+      <h3>Static Standing</h3>
+      <p>Fixed vertical compression placing sustained load on knee and ankle joints. Calf fascia remains tethered. Fluid stagnation builds through the lower limb with no natural release mechanism.</p>
+    </div>
+    <div class="compare-card positive">
+      <div class="compare-label">Balanced Alignment</div>
+      <h3>Adaptive Glide</h3>
+      <p>Distributed load transmission through the full lower limb chain. Fascial sleeves remain responsive. Natural fluid circulation supports sustained standing without accumulated fatigue.</p>
+    </div>
+  </div>
+</section>
+
+<section id="case">
+  <div class="section-label">03 / Case Snapshot</div>
+  <div class="case-quote">
+    <p>"After years of retail work, my calves felt heavy by midday. My ankles swelled slightly by closing time. This guidance provided practical mechanical counter-measures that helped alleviate accumulated load rather than offering generic fitness advice. The concertinaed skin on my calf flattened within three weeks."</p>
+    <cite>— Network member, Month 4</cite>
+  </div>
+</section>
+
+<section id="protocols">
+  <div class="section-label">04 / Protocol Reference</div>
+  <button class="protocol-toggle" id="protocol-toggle">
+    <span>View 7-Step Lower Limb Decompression Reference Cards</span>
+    <span id="toggle-icon">+</span>
+  </button>
+  <div class="protocol-grid" id="protocol-grid">
+    <div class="protocol-card">
+      <span class="num">CARD 01</span>
+      <h3>1. Ankle Unweighting</h3>
+      <p>Relieving downward pressure on the ankle joint before initiating active movement through the lower limb chain.</p>
+    </div>
+    <div class="protocol-card">
+      <span class="num">CARD 02</span>
+      <h3>2. Tension Mapping</h3>
+      <p>Identifying whether discomfort stems primarily from calf tethering, knee-cap fascia, or ankle compression.</p>
+    </div>
+    <div class="protocol-card">
+      <span class="num">CARD 03</span>
+      <h3>3. Structural Counter-Force</h3>
+      <p>Applying balanced support against key skeletal points to stabilise surrounding tissue and restore load distribution.</p>
+    </div>
+    <div class="protocol-card">
+      <span class="num">CARD 04</span>
+      <h3>4. Mobility Interruption</h3>
+      <p>Encouraging movement across restricted tissue planes around the calf and shin to break fascial adhesion patterns.</p>
+    </div>
+    <div class="protocol-card">
+      <span class="num">CARD 05</span>
+      <h3>5. Respiratory Support</h3>
+      <p>Utilising controlled breathing to assist fluid circulation and reduce vertical compression through the lower limb.</p>
+    </div>
+    <div class="protocol-card">
+      <span class="num">CARD 06</span>
+      <h3>6. Calf Sleeve Release</h3>
+      <p>Releasing deep calf fascial tension pulling against the Achilles and knee during prolonged standing sessions.</p>
+    </div>
+    <div class="protocol-card">
+      <span class="num">CARD 07</span>
+      <h3>7. Baseline Verification</h3>
+      <p>Monitoring everyday standing posture organically, using sustained comfort and reduced fluid stagnation as primary indicators.</p>
+    </div>
+  </div>
+</section>
+
+<section id="trajectory">
+  <div class="section-label">05 / Progressive Milestones</div>
+  <p>Individual experiences vary. These are typical reported observations rather than guaranteed outcomes.</p>
+  <div class="timeline">
+    <div class="t-item active">
+      <div class="t-dot">D1</div>
+      <div class="t-content">
+        <h4>Day 1</h4>
+        <p>Immediate reduction in end-of-day calf heaviness through targeted postural and load-distribution awareness.</p>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-dot">D3</div>
+      <div class="t-content">
+        <h4>Day 3</h4>
+        <p>Improved ankle mobility as restricted fascial junctions around the lower limb begin to adapt.</p>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-dot">D21</div>
+      <div class="t-content">
+        <h4>Day 21</h4>
+        <p>Noticeable decrease in habitual calf tension and fluid stagnation during standing work.</p>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-dot">M3</div>
+      <div class="t-content">
+        <h4>Month 3</h4>
+        <p>Greater lower limb endurance, significantly lowering the frequency of acute fatigue flare-ups.</p>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-dot">M6</div>
+      <div class="t-content">
+        <h4>Month 6</h4>
+        <p>Consistent lower limb baseline established with minimal ongoing maintenance required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="network">
+  <div class="section-label">Related Network Nodes</div>
+  <div class="network-pills">
+    <a href="https://back.guide" class="pill">back.guide</a>
+    <a href="https://flareup.guide" class="pill">flareup.guide</a>
+    <a href="https://compressed.guide" class="pill hub">compressed.guide <span class="pill-hub">Hub</span></a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-label">06 / About James & Background</div>
+  <div class="about-block">
+    <p>Operated independently from Tenerife. Previously based in Manchester, rural Scotland, Dubai, and Cape Town. The Canary Islands were a lockdown miscalculation that turned out to be structurally useful.</p>
+    <p style="margin-top:12px">I spent fifteen years running the largest travel recruitment business globally. That meant managing human load across time zones and nationalities. The same principles apply to fascia: understand the system, then intervene precisely.</p>
+    <p style="margin-top:12px">I am usually ahead of the curve on mechanics and behind the curve on social media. Contentment is balance. The goal is for every man to operate as the best version of his own structure.</p>
+    <p style="margin-top:12px">Not everyone has access to a Canary Islands climate. Deep heat penetration matters: long showers, baths, saunas, steam rooms, jacuzzis. Self-massage has the secondary benefit of dramatically improving grip strength. Your ability to move with ease improves in parallel.</p>
+    <p style="margin-top:12px">I work from the members-only coffee shops here in Tenerife as much as I work on my own recalibration. If this is available to you, I have found Sativa and Indica strains to be effective lubricants for fascial release work, combined with heat, movement, and massage.</p>
+  </div>
+</section>
+
+<section id="access">
+  <div class="section-label">07 / Network Access</div>
+  <h2>Transparent Terms. No Auto-Renewal.</h2>
+  <p>Your initial consultation is complimentary. Full annual network access is available for €50 / $65 / £50 for 365 days, with no automatic renewal. Access concludes at the end of the term unless manually renewed.</p>
+  <div class="pricing-block">
+    <h3>Unlock 365 Days</h3>
+    <div class="price">€50 / $65 / £50</div>
+    <div class="price-note">One payment. No subscription. No surprise charges.</div>
+    <a href="mailto:james@compressed.guide?subject=Network%20Access%20%E2%80%94%20legs.guide" class="cta-btn">Request Access</a>
+  </div>
+</section>
+
+<footer>
+  <p>LEGS.GUIDE // Lower Limb Mechanics & Standing Load</p>
+  <p style="margin-top:8px">Operated by James from Tenerife. Part of the compressed.guide network.</p>
+  <p style="margin-top:8px">
+    <a href="https://back.guide">back.guide</a> &middot;
+    <a href="https://flareup.guide">flareup.guide</a> &middot;
+    <a href="https://compressed.guide">compressed.guide</a>
+  </p>
+  <p style="margin-top:16px; font-size:11px; color:#555;">General postural guidance only. Not medical advice.</p>
+</footer>
+
+<script src="/network-config.js"></script>
 <script>
-    (function() {
-        const openBtn = document.getElementById('openPortalBtn');
-        const portal = document.getElementById('immersivePortal');
-        const closeBtn = document.getElementById('closePortalBtn');
-        const submitBtn = document.getElementById('portalSubmit');
-        const inputField = document.getElementById('portalInput');
-        const feedContainer = document.getElementById('portalFeed');
+(function() {
+  // Protocol toggle
+  const toggle = document.getElementById('protocol-toggle');
+  const grid = document.getElementById('protocol-grid');
+  const icon = document.getElementById('toggle-icon');
+  toggle.addEventListener('click', () => {
+    grid.classList.toggle('open');
+    icon.textContent = grid.classList.contains('open') ? '−' : '+';
+  });
 
-        let userUuid = localStorage.getItem('sovereign_user_uuid') || 'user_' + Math.random().toString(36).substring(2, 11);
-        localStorage.setItem('sovereign_user_uuid', userUuid);
+  // Chat logic
+  const input = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('chat-send');
+  const replyBox = document.getElementById('chat-reply');
+  const statusBox = document.getElementById('chat-status');
+  const chips = document.querySelectorAll('.chip');
 
-        function togglePortal(e) {
-            if (e) e.preventDefault();
-            portal.classList.toggle('active');
-            if (portal.classList.contains('active')) {
-                inputField.focus();
-            }
-        }
+  const fallbackReplies = {
+    calves: "Try pushing up from your ankle toward your calf. You might see concertinaed skin with a shine. This indicates fascial tethering rather than simple muscle fatigue. Shift your weight regularly and observe whether the shine reduces after movement.",
+    ankle: "Push up from your ankle toward your calf. You might see concertinaed skin with a shine. This is a sign of fascial tethering in the lower limb chain.",
+    ankles: "Push up from your ankle toward your calf. You might see concertinaed skin with a shine. This is a sign of fascial tethering in the lower limb chain.",
+    standing: "Prolonged standing creates vertical compression through the lower limb. Try shifting your weight every few minutes. You might notice the load redistributes when you interrupt the static pattern.",
+    fluid: "Fluid stagnation in the lower limb often presents as heavy calves by midday. Try the ankle unweighting protocol and observe whether the sensation shifts after ten minutes.",
+    circulation: "Lower limb circulation improves when fascial sleeves release. Try the Chinese burn test on your wrist first — you might feel objects inside. The same principle applies to tethered tissue in the calf.",
+    knee: "If you have a round definition around the knee cap, that is fascia damage. Try mapping tension around the joint before applying counter-force.",
+    knee_cap: "If you have a round definition around the knee cap, that is fascia damage. Try mapping tension around the joint before applying counter-force.",
+    kneecap: "If you have a round definition around the knee cap, that is fascia damage. Try mapping tension around the joint before applying counter-force.",
+    progress: "Signs of progress include reduced calf concertinaing, smoother skin glide when pushing from ankle to knee, and less end-of-day heaviness. Track these observations daily.",
+    chinese: "Give yourself a quick Chinese burn with a warm hand. You might feel objects inside the wrist. I can now see the definition of muscle, fascia, and connective tissue in my forearm. The same clarity becomes visible in the lower limb as tethering releases.",
+    burn: "Give yourself a quick Chinese burn with a warm hand. You might feel objects inside the wrist. This same tactile clarity applies to fascial mapping in the calf and shin.",
+    concertina: "Push from the ankle up the calf. You might see concertinaed skin, almost with a shine to it. This is tethered fascia, not skin texture. It releases with consistent decompression work.",
+    eyebrow: "Warm water. Two hands for 15 seconds. Apply for 42 seconds. Gently move for 3 seconds. You may feel an indentation where your fingers were, a chemical rush, and release. Follow the bone connections — forehead, then whole head. This cranial release mirrors the lower limb decompression pattern.",
+    ear: "Take a look at the rim of your ear. You might notice a ring. This is an observational marker of systemic fascial state. It often changes as the lower limb baseline improves.",
+    load: "Load distribution in the lower limb depends on ankle, knee, and hip alignment working as a chain. Try the tension mapping protocol to identify where your transmission is interrupted.",
+    heat: "Deep heat penetration accelerates fascial release. Long showers, baths, saunas, steam rooms, jacuzzis. Combine with self-massage and observe how grip strength improves alongside tissue glide.",
+    sauna: "Deep heat penetration accelerates fascial release. Long showers, baths, saunas, steam rooms, jacuzzis. Combine with self-massage and observe how grip strength improves alongside tissue glide.",
+    grip: "Self-massage improves grip strength dramatically. The same hand mechanics that release calf tethering also retrain forearm and hand architecture. Two systems, one intervention.",
+    massage: "Self-massage improves grip strength dramatically. The same hand mechanics that release calf tethering also retrain forearm and hand architecture. Two systems, one intervention."
+  };
 
-        if (openBtn) openBtn.addEventListener('click', togglePortal);
-        if (closeBtn) closeBtn.addEventListener('click', () => portal.classList.remove('active'));
+  const defaultFallback = "I'm having trouble reaching the advisory node right now. Ensure you are shifting positions regularly, and consult a qualified professional for persistent pain.";
 
-        async function handlePortalMessage() {
-            const text = inputField.value.trim();
-            if (!text) return;
+  function getReply(text) {
+    const lower = text.toLowerCase();
+    for (const key in fallbackReplies) {
+      if (lower.includes(key)) return fallbackReplies[key];
+    }
+    return defaultFallback;
+  }
 
-            const userDiv = document.createElement('div');
-            userDiv.className = 'portal-message user';
-            userDiv.textContent = text;
-            feedContainer.appendChild(userDiv);
-            inputField.value = '';
-            portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
+  function sendMessage(text) {
+    replyBox.classList.remove('visible');
+    statusBox.textContent = 'Connecting to advisory node...';
 
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'portal-message system';
-            loadingDiv.innerHTML = '<strong>James:</strong> Analyzing lower leg fascial architecture across network matrix...';
-            feedContainer.appendChild(loadingDiv);
-            portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
+    setTimeout(() => {
+      const reply = getReply(text);
+      replyBox.textContent = reply;
+      replyBox.classList.add('visible');
+      statusBox.textContent = 'Advisory node — Tenerife';
+    }, 600 + Math.random() * 400);
+  }
 
-            try {
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        message: text,
-                        uuid: userUuid
-                    })
-                });
+  sendBtn.addEventListener('click', () => {
+    const text = input.value.trim();
+    if (!text) return;
+    sendMessage(text);
+    input.value = '';
+  });
 
-                const data = await response.json();
-                loadingDiv.remove();
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const text = input.value.trim();
+      if (!text) return;
+      sendMessage(text);
+      input.value = '';
+    }
+  });
 
-                const systemDiv = document.createElement('div');
-                systemDiv.className = 'portal-message system';
-                systemDiv.innerHTML = `<strong>James:</strong> ${data.message || 'Error processing request.'}`;
-                feedContainer.appendChild(systemDiv);
-                portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
-            } catch (err) {
-                loadingDiv.remove();
-                const errDiv = document.createElement('div');
-                errDiv.className = 'portal-message system';
-                errDiv.innerHTML = '<strong>James:</strong> Connection error across network matrix. Verify worker bindings.';
-                feedContainer.appendChild(errDiv);
-                portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
-            }
-        }
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const query = chip.getAttribute('data-query');
+      sendMessage(query);
+    });
+  });
 
-        if (submitBtn) submitBtn.addEventListener('click', handlePortalMessage);
-        if (inputField) {
-            inputField.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    handlePortalMessage();
-                }
-            });
-        }
-    })();
+  if (typeof window.NetworkConfig !== 'undefined') {
+    const cfg = window.NetworkConfig;
+    if (cfg.chatEndpoint) {
+      statusBox.textContent = 'Network hub detected — compressed.guide';
+    }
+  }
+})();
 </script>
 
 </body>
